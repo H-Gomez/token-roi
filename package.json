@@ -1,10 +1,11 @@
 {
   "name": "token-roi",
   "version": "1.0.0",
+  "private": true,
   "description": "Tracks ERC20 token ROI since their crowd sale values",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,13 @@
   },
   "homepage": "https://github.com/H-Gomez/token-roi#readme",
   "dependencies": {
+    "request": "^2.85.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
     "fs": "0.0.1-security",
-    "request": "^2.85.0"
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0"
   }
 }
