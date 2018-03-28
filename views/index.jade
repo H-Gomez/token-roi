@@ -1,7 +1,16 @@
 extends layout
 
 block content
-  ul.tokens
-    for token in tokenData
-      li.token-item
-        a(href="#") #{token.name}
+    // High charts container
+    div(id="container" style="height: 600px; width: 80%; right: 0; position: fixed;")
+
+    ul.tokens
+        for token in tokenData
+            li.token-item
+                a(href="#" class="token-item-link") #{token.ticker}
+
+    // Scripts for this page.
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js")
+    script(src="https://code.highcharts.com/stock/highstock.js")
+    script(src="https://code.highcharts.com/stock/modules/exporting.js")
+    script(src="javascript/charts.js")
