@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  ul.tokens
+    for token in tokenData
+      li.token-item
+        a(href="#") #{token.name}
