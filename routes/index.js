@@ -1,18 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const tokenData = require('../public/data/tokens');
+const tokenData = require('../public/data/final');
 const request = require('request');
 
 /* GET home page */
 router.get('/', function(reg, res) {
-   res.render('index', { tokenData });
+   res.render('index', { tokenData: tokenData });
 });
 
 /* Returns local json file */
 router.get('/api/tokens', function(req, res) {
    console.log("Requesting JSON...");
-   res.sendFile(path.join(__dirname, '../public/data', 'tokens.json'));
+   res.sendFile(path.join(__dirname, '../public/data', 'final.json'));
 });
 
 /* Returns price data from CMC api */
