@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const tokenData = require('../public/data/final');
+const tokenData = require('../public/data/final.json');
 const request = require('request');
 
 /* GET home page */
