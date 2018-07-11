@@ -81,7 +81,7 @@ function loadCharts(tokenName, prices, volume, icoPrice) {
             name: tokenName,
             data: prices,
             tooltip: {
-                valueDecimals: 1
+                valueDecimals: 2
             }
         }
         // , {
@@ -100,6 +100,7 @@ function loadCharts(tokenName, prices, volume, icoPrice) {
 /* Event listener for charts */
 /* Move this to abstract function */
 jQuery('.token-item-link').on('click', function(event) {
+
     event.preventDefault();
     var tokenName = event.target.innerText.toLowerCase();
     var tokenPrice;
@@ -107,7 +108,6 @@ jQuery('.token-item-link').on('click', function(event) {
 
     jQuery.getJSON('/api/tokens', function(data) {
         tokenData = data;
-        console.log(tokenData);
 
         for (var i = 0; i < tokenData.length; i++) {
             if (tokenData[i].identifier === tokenName) {
@@ -120,7 +120,7 @@ jQuery('.token-item-link').on('click', function(event) {
                 jQuery('#token-desc').text(tokenData[i].description);
                 jQuery('#token-tag').text(tokenData[i].tokenType);
 
-                jQuery.get('/api/getPricesForToken', { tokenN: tokenName}, function(data) {
+                jQuery.get('/api/getPricesForToken', { tokenN: tokenName }, function(data) {
                     console.log("Getting chart data for..." + tokenName);
                     loadCharts(tokenName, data['price_usd'], data['volume_usd'], tokenPrice);
                 });
